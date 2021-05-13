@@ -23,23 +23,27 @@ yc=0
 N = 5000
 
 G = 6.67 * 10 ** (-11)
-m_g = 4.8 * 10 ** 11 * 1.98 * 10 ** (30)
+m_g = 4.8 * 10 ** 11 * 1.98 * 10 ** (30) / 2
 
 gx0_one = 1
-gy0_one = 10000 * le
-gv_x0_one = - 250000
+gy0_one = - 30000 * le
+gv_x0_one = 500000
 gv_y0_one = 0
 
+print(gv_x0_one)
+
 gx0_two = 1
-gy0_two = - 10000 * le
-gv_x0_two = 250000
+gy0_two = 30000 * le
+gv_x0_two = - 500000
 gv_y0_two = 0
+
+print(gv_x0_two)
 
 s0 = (gx0_one, gv_x0_one, gy0_one, gv_y0_one,
       gx0_two, gv_x0_two, gy0_two, gv_y0_two)
 
 frames = 1400
-t = np.linspace(0, 6.3072e+15, frames)
+t = np.linspace(0, 2.3072e+16, frames)
 
 """
 Функция распределения частиц в галактике
@@ -148,7 +152,7 @@ ax.set_facecolor('black')
 stars, = plt.plot([],[],'.', ms='1', color='white')
 point_one, = plt.plot([],[],'.', ms='10', color='orange')
 point_two, = plt.plot([],[],'.', ms='10', color='orange')
-plt.plot([0], [0], 'o', ms = 15, color = 'wheat')
+
 
 coor_x = np.ndarray(shape=(N))
 coor_y = np.ndarray(shape=(N))
@@ -176,4 +180,5 @@ ani = animation.FuncAnimation(fig,
                               interval=30)
 
 
-ani.save('7.gif',fps=30)
+
+plt.show()
