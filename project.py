@@ -9,7 +9,7 @@ le = 63241.1 * ae
 parcek = ae * 206265
 inner_eccentricity = 0.3
 outer_eccentricity = 0.9
-angular_offset = 0.0003 / le # от 0.0003/масштаб до 0.0007/масштаб
+angular_offset = 0.0004 / le # от 0.0003/масштаб до 0.0007/масштаб
 core_radius = 1000 * parcek
 galaxy_radius = 50000 * le
 
@@ -27,8 +27,8 @@ m_g = 4.8 * 10 ** 11 * 1.98 * 10 ** (30)
 
 gx0_one = 1
 gy0_one = 10000 * le
-gv_x0_one = 0
-gv_y0_one = - 250000
+gv_x0_one = - 250000
+gv_y0_one = 0
 
 gx0_two = 1
 gy0_two = - 10000 * le
@@ -39,7 +39,8 @@ s0 = (gx0_one, gv_x0_one, gy0_one, gv_y0_one,
       gx0_two, gv_x0_two, gy0_two, gv_y0_two)
 
 frames = 1400
-t = np.linspace(0, 200000000, frames)
+t = np.linspace(0, 6.3072e+15, frames)
+
 """
 Функция распределения частиц в галактике
 inner_eccentricity - Эксцентричность внутреннего эллипса
@@ -147,6 +148,7 @@ ax.set_facecolor('black')
 stars, = plt.plot([],[],'.', ms='1', color='white')
 point_one, = plt.plot([],[],'.', ms='10', color='orange')
 point_two, = plt.plot([],[],'.', ms='10', color='orange')
+plt.plot([0], [0], 'o', ms = 15, color = 'wheat')
 
 coor_x = np.ndarray(shape=(N))
 coor_y = np.ndarray(shape=(N))
@@ -174,5 +176,4 @@ ani = animation.FuncAnimation(fig,
                               interval=30)
 
 
-# ani.save('7.gif',fps=30)
-plt.show()
+ani.save('7.gif',fps=30)
